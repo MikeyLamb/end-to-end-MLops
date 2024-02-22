@@ -39,6 +39,7 @@ Make sure you have the following installed on your machine:
 
 
 ## Running the app
+
 1. Run the Flask app:
     python your_app_file.py
 
