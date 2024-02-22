@@ -1,1 +1,25 @@
-<h1>Welcome to the home page</h1>
+<!-- index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Student Exam Performance Predictor</title>
+</head>
+<body>
+    <div class="container">
+        <div class="form-wrapper btn-center">
+            <header>
+                <h1>Student Exam Performance Predictor</h1>
+            </header>
+            <section  class="login">
+                <p>Welcome to the Student Exam Performance Predictor.</p>
+                <p>This web app predicts a student's exam performance based on input parameters. Press the button below to access the form predictor to see the magic happen!</p>
+                <a href="{{ url_for('predict_datapoint') }}" class="btn">Prediction Page</a>
+            </section>
+        </div>    
+    </div>
+</body>
+</html>
