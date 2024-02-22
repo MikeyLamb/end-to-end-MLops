@@ -7,7 +7,6 @@ from sklearn.linear_model import LinearRegression
 from sklearn.metrics import r2_score
 from sklearn.neighbors import KNeighborsRegressor
 from xgboost import XGBRegressor
-
 from src.exception import CustomException
 from src.logger import logging
 
@@ -34,6 +33,7 @@ class ModelTrainer:
             models = {
                 "Random Forest": RandomForestRegressor(),
                 "Linear Regression": LinearRegression(),
+                "K-Neighbour Regressor": KNeighborsRegressor(),
                 "XGBRegressor": XGBRegressor(),
             }
             params={
@@ -43,19 +43,14 @@ class ModelTrainer:
                     # 'max_features':['sqrt','log2',None],
                     'n_estimators': [8,16,32,64,128,256]
                 },
-                "Gradient Boosting":{
-                    # 'loss':['squared_error', 'huber', 'absolute_error', 'quantile'],
-                    'learning_rate':[.1,.01,.05,.001],
-                    'subsample':[0.6,0.7,0.75,0.8,0.85,0.9],
-                    # 'criterion':['squared_error', 'friedman_mse'],
-                    # 'max_features':['auto','sqrt','log2'],
-                    'n_estimators': [8,16,32,64,128,256]
+                "K-Neighbour Regressor": {
+                    'n_neighbors': [5, 7, 9, 11],
                 },
-                "Linear Regression":{},
                 "XGBRegressor":{
                     'learning_rate':[.1,.01,.05,.001],
                     'n_estimators': [8,16,32,64,128,256]
                 },
+                "Linear Regression":{},
                 
             }
 
@@ -85,10 +80,6 @@ class ModelTrainer:
 
             r2_square = r2_score(y_test, predicted)
             return r2_square
-            
-
-
-
-            
+                       
         except Exception as e:
             raise CustomException(e,sys)

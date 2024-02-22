@@ -1,7 +1,5 @@
 import os
 import sys
-from src.exception import CustomException
-from src.logger import logging
 import pandas as pd
 
 from sklearn.model_selection import train_test_split
@@ -12,6 +10,11 @@ from src.components.data_transformation import DataTransformationConfig
 
 from src.components.model_trainer import ModelTrainerConfig
 from src.components.model_trainer import ModelTrainer
+
+from src.exception import CustomException
+from src.logger import logging
+
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 #using the dataclass means I dont have to use init
 @dataclass
