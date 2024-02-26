@@ -14,9 +14,11 @@ from src.components.model_trainer import ModelTrainer
 from src.exception import CustomException
 from src.logger import logging
 
+
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-#using the dataclass means I dont have to use init
+# using the dataclass means I dont have to use init
+# Configuration for data ingestion. Joins artifacts directory to file names
 @dataclass
 class DataIngestionConfig:
     train_data_path: str=os.path.join('artifacts',"train.csv")
@@ -28,7 +30,19 @@ class DataIngestion:
         self.ingestion_config=DataIngestionConfig()
 
     def initiate_data_ingestion(self):
+        """
+        Initiates the data ingestion process, including reading a CSV file, performing train-test split,
+        and saving the datasets to separate files.
+
+        Returns:
+        - Tuple of file paths for the training and testing datasets.
+
+        Raises:
+        - CustomException: If any exception occurs during the data ingestion process.
+        """
+        
         logging.info("Entered the data ingestion method or component")
+        
         try:
             df=pd.read_csv('notebook\data\stud.csv')
             logging.info('Read the dataset as dataframe')
@@ -38,13 +52,13 @@ class DataIngestion:
             df.to_csv(self.ingestion_config.raw_data_path,index=False,header=True)
 
             logging.info("Train test split initiated")
-            train_set,test_set=train_test_split(df,test_size=0.2,random_state=42)
+            train_set,test_set=train_test_split(df,random_state=42)
 
             train_set.to_csv(self.ingestion_config.train_data_path,index=False,header=True)
 
             test_set.to_csv(self.ingestion_config.test_data_path,index=False,header=True)
 
-            logging.info("Inmgestion of the data is completed")
+            logging.info("Ingestion of the data is completed")
 
             return(
                 self.ingestion_config.train_data_path,
