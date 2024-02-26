@@ -1,11 +1,11 @@
 from setuptools import find_packages,setup
 from typing import List
 
-HYPEN_E_DOT='-e .'
+HYPEN_E_DOT = '-e .'
 
 def get_requirements(file_path:str)->List[str]:
     '''
-    this function returns the list of requirements
+    this function returns the list of requirements and removes the editable mode specifier if present
     '''
     requirements=[]
     with open(file_path) as file_obj: #open file path with temporary object
