@@ -40,7 +40,9 @@ Make sure you have the following installed on your machine:
 
 ## Running the app
 
-1. Run the Flask app:
+1. Set the python path in cmd:
+    set PYTHONPATH="ProjectDirectory"
+2. Run the Flask app:
     python your_app_file.py
 
-2. Open your web browser and go to http://localhost:5000/ to access the app.
+3. Open your web browser and go to http://localhost:5000/ to access the app.
