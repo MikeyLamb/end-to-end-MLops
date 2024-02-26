@@ -22,6 +22,19 @@ class ModelTrainer:
 
 
     def initiate_model_trainer(self,train_array,test_array):
+        """
+        Initiates the model training process, evaluates multiple regression models, and saves the best model.
+
+        Args:
+        - train_array (numpy.ndarray): Training data array containing input features and target variable.
+        - test_array (numpy.ndarray): Testing data array containing input features and target variable.
+
+        Returns:
+        - float: R-squared score of the best model on the testing dataset.
+
+        Raises:
+        - CustomException: If any exception occurs during the model training process.
+        """
         try:
             logging.info("Split training and test input data")
             X_train,y_train,X_test,y_test=(
@@ -51,7 +64,6 @@ class ModelTrainer:
                     'n_estimators': [8,16,32,64,128,256]
                 },
                 "Linear Regression":{},
-                
             }
 
             model_report:dict=evaluate_models(X_train=X_train,y_train=y_train,X_test=X_test,y_test=y_test,
