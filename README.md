@@ -1,10 +1,10 @@
 ## End to End Machine Learning Project
-I am learning about basic end to end ML deployment and followed a tutorial on deploying a model to predict maths scores. In continuing the learning process, I am planning to create a new model and deploy it using these skills. 
+I am learning about basic end to end ML deployment and followed a tutorial on deploying a model to predict maths scores. In continuing the learning process, I am planning to create a new model predicting house prices and deploy it using these skills. 
 
 
 # Student Exam Performance Predictor
 
-This Flask web app predicts a student's exam performance based on input parameters. It includes a machine learning model trained on historical data to make predictions.
+This Flask web app predicts a student's exam performance based on input parameters. It includes a machine learning model trained on historical data to make predictions. This code contains many lines of explanations. 
 
 ## Table of Contents
 - [Getting Started](#getting-started)
