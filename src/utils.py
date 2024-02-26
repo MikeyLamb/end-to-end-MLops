@@ -11,6 +11,16 @@ from sklearn.model_selection import GridSearchCV
 from src.exception import CustomException
 
 def save_object(file_path, obj):
+    """
+     Save a Python object to a file using pickle serialization.
+
+    Parameters:
+    - file_path (str): The path to the file where the object will be saved.
+    - obj: The Python object to be saved.
+
+    Raises:
+    - CustomException: If any exception occurs during the saving process.
+    """
     try:
         dir_path = os.path.dirname(file_path)
 
@@ -21,8 +31,26 @@ def save_object(file_path, obj):
 
     except Exception as e:
         raise CustomException(e, sys)
-    
+
+
 def evaluate_models(X_train, y_train,X_test,y_test,models,param):
+    """
+    Evaluate machine learning models using grid search for hyperparameter tuning.
+
+    Parameters:
+    - X_train: Training data features.
+    - y_train: Training data labels.
+    - X_test: Testing data features.
+    - y_test: Testing data labels.
+    - models (dict): A dictionary containing models to be evaluated.
+    - param (dict): A dictionary containing hyperparameter grids for corresponding models.
+
+    Returns:
+    - dict: A dictionary containing R^2 scores for each evaluated model.
+
+    Raises:
+    - CustomException: If any exception occurs during the evaluation process.
+    """
     try:
         report = {}
 
@@ -35,8 +63,6 @@ def evaluate_models(X_train, y_train,X_test,y_test,models,param):
 
             model.set_params(**gs.best_params_)
             model.fit(X_train,y_train)
-
-            #model.fit(X_train, y_train)  # Train model
 
             y_train_pred = model.predict(X_train)
 
@@ -52,8 +78,21 @@ def evaluate_models(X_train, y_train,X_test,y_test,models,param):
 
     except Exception as e:
         raise CustomException(e, sys)
-    
+
+
 def load_object(file_path):
+    """
+    Load a Python object from a file using pickle deserialization.
+
+    Parameters:
+    - file_path (str): The path to the file from which the object will be loaded.
+
+    Returns:
+    - The Python object loaded from the file.
+
+    Raises:
+    - CustomException: If any exception occurs during the loading process.
+    """
     try:
         with open(file_path, "rb") as file_obj:
             return pickle.load(file_obj)
