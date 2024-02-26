@@ -7,4 +7,4 @@ RandomForestRegressor
 xgboost
 Flask
 
-#-e . #automatically triggers setup.py
+#-e . means the packages are installed in editable mode
