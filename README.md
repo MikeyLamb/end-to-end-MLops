@@ -16,7 +16,7 @@ This Flask web app predicts a student's exam performance based on input paramete
 
 ### Prerequisites
 Make sure you have the following installed on your machine:
-- Python (version 3.x)
+- Python (version 3.8)
 - pip (Python package installer)
 
 ### Installation
@@ -43,6 +43,6 @@ Make sure you have the following installed on your machine:
 1. Set the python path in cmd:
     set PYTHONPATH="ProjectDirectory"
 2. Run the Flask app:
-    python your_app_file.py
+    python app.py
 
 3. Open your web browser and go to http://localhost:5000/ to access the app.
