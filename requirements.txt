@@ -1,5 +1,3 @@
 pandas
 numpy
-
-
--e . #means the packages are installed automatically
+-e .
