@@ -101,13 +101,6 @@ class DataTransformation:
 
             target_arr = np.array(target_feature_train_df)           
 
-            np.save('input_feature_train_arr.npy', input_feature_train_arr)
-            np.save('target_arr.npy', target_arr)
-            
-            print(input_feature_train_arr.shape)
-            print(target_arr.shape)
-
-
             # Concat the arrays column wise
             # Have to use toarray() because the OHE caused many zeros and thus a sparse matrix 
             #to be created instead of a dense matrix

@@ -45,7 +45,26 @@ def evaluate_models(X_train, y_train,X_test,y_test,models):
 
     except Exception as e:
         raise CustomException(e, sys)
+
+
+def tuning_model(model, params, X_train, y_train):
+    """
+    Takes in model and train data
     
+    Returns:
+    Best model, best params
+    """
+
+    grid_search = GridSearchCV(estimator=model, param_grid=params, scoring='r2')
+
+    grid_search.fit(X_train, y_train)
+
+    best_params = grid_search.best_params_
+    best_model=grid_search.best_estimator_
+
+    return best_model, best_params
+
+
 def load_object(file_path):
     try:
         with open(file_path, "rb") as file_obj:
