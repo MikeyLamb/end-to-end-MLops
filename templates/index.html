@@ -1,25 +1,60 @@
-<!-- index.html -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-    <title>Student Exam Performance Predictor</title>
+    <title>Property Price Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        p {
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
+    <a href="https://github.com/MikeyLamb" class="top-left-link" target="_blank">GitHub Repository Link</a>
     <div class="container">
-        <div class="form-wrapper btn-center">
-            <header>
-                <h1>Student Exam Performance Predictor</h1>
-            </header>
-            <section  class="login">
-                <p>Welcome to the Student Exam Performance Predictor.</p>
-                <p>This web app predicts a student's exam performance based on input parameters. Press the button below to access the form predictor to see the magic happen!</p>
-                <a href="{{ url_for('predict_datapoint') }}" class="btn">Prediction Page</a>
-            </section>
-        </div>    
+        <h1>Welcome to Property Price Prediction</h1>
+        <p>Find out the estimated rental price of properties in various suburbs.</p>
+        <p>Data is constantly being added to supplement the current predictions and to stay current with the latest developments in the Cape Town property market.</p>
+        <a href="/predictdata" class="btn">Get Started</a>
     </div>
 </body>
 </html>

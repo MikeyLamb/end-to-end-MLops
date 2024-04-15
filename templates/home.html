@@ -5,110 +5,78 @@
         <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
     </head>
 <body>
-    <div class="login">
-       <h1>Student Exam Performance Indicator</h1>
+    <div class="background">
+        
+       <h1>Rental Price Prediction</h1>
    
        <form action="{{ url_for('predict_datapoint')}}" method="post">
+        
         <div class="mb-3">
-            <label class="form-label">Gender</label>
-            <select class="form-control" name="gender" placeholder="Enter you Gender" required>
-                <option class="placeholder" selected disabled value="">Select your Gender</option>
-                <option value="male">
-                    Male
-                </option>
-                <option value="female">
-                    Female
-                </option>
+            <label class="form-label">Lunch Type:</label>
+            <select class="form-control" name="Suburb" placeholder="Suburb" required>
+                <option class="placeholder" selected disabled value="">Select a Suburb</option>
+                    <option value="Bantry Bay">Bantry Bay</option>
+                    <option value="Bo Kaap">Bo Kaap</option>
+                    <option value="Camps Bay">Camps Bay</option>
+                    <option value="Cape Town City Centre">Cape Town City Centre</option>
+                    <option value="Claremont">Claremont</option>
+                    <option value="Claremont Upper">Claremont Upper</option>
+                    <option value="Clifton">Clifton</option>
+                    <option value="Constantia">Constantia</option>
+                    <option value="De Waterkant">De Waterkant</option>
+                    <option value="Diep River">Diep River</option>
+                    <option value="Foreshore">Foreshore</option>
+                    <option value="Fresnaye">Fresnaye</option>
+                    <option value="Gardens">Gardens</option>
+                    <option value="Green Point">Green Point</option>
+                    <option value="Higgovale">Higgovale</option>
+                    <option value="Kenilworth">Kenilworth</option>
+                    <option value="Kenilworth Upper">Kenilworth Upper</option>
+                    <option value="Llandudno">Llandudno</option>
+                    <option value="Mouille Point">Mouille Point</option>
+                    <option value="Muizenberg">Muizenberg</option>
+                    <option value="Newlands">Newlands</option>
+                    <option value="Observatory">Observatory</option>
+                    <option value="Oranjezicht">Oranjezicht</option>
+                    <option value="Pinelands">Pinelands</option>
+                    <option value="Plumstead">Plumstead</option>
+                    <option value="Rondebosch">Rondebosch</option>
+                    <option value="Sea Point">Sea Point</option>
+                    <option value="Tamboerskloof">Tamboerskloof</option>
+                    <option value="Three Anchor Bay">Three Anchor Bay</option>
+                    <option value="Tokai">Tokai</option>
+                    <option value="Vredehoek">Vredehoek</option>
+                    <option value="Waterfront">Waterfront</option>
+                    <option value="Woodstock">Woodstock</option>
+                    <option value="Wynberg">Wynberg</option>
+                    <option value="Wynberg Upper">Wynberg Upper</option>               
             </select>
         </div>
+
         <div class="mb-3">
-            <label class="form-label">Race or Ethnicity</label>
-            <select class="form-control" name="ethnicity" placeholder="Enter you ethnicity" required>
-                <option class="placeholder" selected disabled value="">Select Ethnicity</option>
-                <option value="group A">
-                    Group A
-                </option>
-                <option value="group B">
-                    Group B
-                </option>
-                <option value="group C">
-                    Group C
-                </option>
-                <option value="group D">
-                    Group D
-                </option>
-                <option value="group E">
-                    Group E
-                </option>
-            </select>
+            <label class="form-label">Number of Bedrooms:</label>
+            <input class="form-control" type="number" name="Bedrooms"
+                placeholder="Bedrooms" min='1' max='5' />
         </div>
         <div class="mb-3">
-            <label class="form-label">Parental Level of Education</label>
-            <select class="form-control" name="parental_level_of_education"
-                placeholder="Enter you Parent Education" required>
-                <option class="placeholder" selected disabled value="">Select Parent Education</option>
-                <option value="associate's degree">
-                    associate's degree
-                </option>
-                <option value="bachelor's degree">
-                    bachelor's degree
-                </option>
-                <option value="high school">
-                    high school
-                </option>
-                <option value="master's degree">
-                    master's degree
-                </option>
-                <option value="some college">
-                    some college
-                </option>
-                <option value="some high school">
-                    some high school
-                </option>
-            </select>
+            <label class="form-label">Number of Bathrooms:</label>
+            <input class="form-control" type="number" name="Bathrooms"
+                placeholder="Bathrooms" min='1' max='5' />
         </div>
         <div class="mb-3">
-            <label class="form-label">Lunch Type</label>
-            <select class="form-control" name="lunch" placeholder="Enter you Lunch" required>
-                <option class="placeholder" selected disabled value="">Select Lunch Type</option>
-                <option value="free/reduced">
-                    free/reduced
-                </option>
-                <option value="standard">
-                    standard
-                </option>
-            </select>
+            <label class="form-label">Number of Parking Spaces:</label>
+            <input class="form-control" type="number" name="Parking_spaces"
+                placeholder="Parking Spaces" min='1' max='6' />
         </div>
         <div class="mb-3">
-            <label class="form-label">Test preparation Course</label>
-            <select class="form-control" name="test_preparation_course" placeholder="Enter you Course"
-                required>
-                <option class="placeholder" selected disabled value="">Select Test_course</option>
-                <option value="none">
-                    None
-                </option>
-                <option value="completed">
-                    Completed
-                </option>
-            </select>
-        </div>
-        <div class="mb-3">
-            <label class="form-label">Writing Score out of 100</label>
-            <input class="form-control" type="number" name="reading_score"
-                placeholder="Enter your Reading score" min='0' max='100' />
-        </div>
-        <div class="mb-3">
-            <label class="form-label">Reading Score out of 100</label>
-            <input class="form-control" type="number" name="writing_score"
-                placeholder="Enter your Reading Score" min='0' max='100' />
-        </div>
-        <div class="mb-3">
-            <input class="btn btn-primary" type="submit" value="Predict your Maths Score" required />
+            <input class="btn btn-primary" type="submit" value="Predict the rental price" required />
         </div>
     </form>
+    {% if results %}
     <h2>
-       The  prediction is: {{results}}
+        The predicted rental price is: R{{results}} per month
     </h2>
+    {% endif %}
    <body>
 </html>
 
