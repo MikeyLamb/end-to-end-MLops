@@ -5,49 +5,78 @@
         <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
     </head>
 <body>
-    <div class="login">
-       <h1>Rental Price Preiction</h1>
+    <div class="background">
+        
+       <h1>Rental Price Prediction</h1>
    
        <form action="{{ url_for('predict_datapoint')}}" method="post">
-
+        
         <div class="mb-3">
-            <label class="form-label">Lunch Type</label>
-            <select class="form-control" name="Suburb" placeholder="Enter you Lunch" required>
-                <option class="placeholder" selected disabled value="">Select Lunch Type</option>
-                <option value="Constantia">
-                    Constantia
-                </option>
-                <option value="standard">
-                    standard
-                </option>
+            <label class="form-label">Lunch Type:</label>
+            <select class="form-control" name="Suburb" placeholder="Suburb" required>
+                <option class="placeholder" selected disabled value="">Select a Suburb</option>
+                    <option value="Bantry Bay">Bantry Bay</option>
+                    <option value="Bo Kaap">Bo Kaap</option>
+                    <option value="Camps Bay">Camps Bay</option>
+                    <option value="Cape Town City Centre">Cape Town City Centre</option>
+                    <option value="Claremont">Claremont</option>
+                    <option value="Claremont Upper">Claremont Upper</option>
+                    <option value="Clifton">Clifton</option>
+                    <option value="Constantia">Constantia</option>
+                    <option value="De Waterkant">De Waterkant</option>
+                    <option value="Diep River">Diep River</option>
+                    <option value="Foreshore">Foreshore</option>
+                    <option value="Fresnaye">Fresnaye</option>
+                    <option value="Gardens">Gardens</option>
+                    <option value="Green Point">Green Point</option>
+                    <option value="Higgovale">Higgovale</option>
+                    <option value="Kenilworth">Kenilworth</option>
+                    <option value="Kenilworth Upper">Kenilworth Upper</option>
+                    <option value="Llandudno">Llandudno</option>
+                    <option value="Mouille Point">Mouille Point</option>
+                    <option value="Muizenberg">Muizenberg</option>
+                    <option value="Newlands">Newlands</option>
+                    <option value="Observatory">Observatory</option>
+                    <option value="Oranjezicht">Oranjezicht</option>
+                    <option value="Pinelands">Pinelands</option>
+                    <option value="Plumstead">Plumstead</option>
+                    <option value="Rondebosch">Rondebosch</option>
+                    <option value="Sea Point">Sea Point</option>
+                    <option value="Tamboerskloof">Tamboerskloof</option>
+                    <option value="Three Anchor Bay">Three Anchor Bay</option>
+                    <option value="Tokai">Tokai</option>
+                    <option value="Vredehoek">Vredehoek</option>
+                    <option value="Waterfront">Waterfront</option>
+                    <option value="Woodstock">Woodstock</option>
+                    <option value="Wynberg">Wynberg</option>
+                    <option value="Wynberg Upper">Wynberg Upper</option>               
             </select>
         </div>
 
-
-
-
         <div class="mb-3">
-            <label class="form-label">Number of Bedrooms</label>
+            <label class="form-label">Number of Bedrooms:</label>
             <input class="form-control" type="number" name="Bedrooms"
-                placeholder="Number of Bedrooms" min='1' max='15' />
+                placeholder="Bedrooms" min='1' max='5' />
         </div>
         <div class="mb-3">
-            <label class="form-label">Number of Bathrooms</label>
+            <label class="form-label">Number of Bathrooms:</label>
             <input class="form-control" type="number" name="Bathrooms"
-                placeholder="Enter your Reading Score" min='1' max='15' />
+                placeholder="Bathrooms" min='1' max='5' />
         </div>
         <div class="mb-3">
-            <label class="form-label">Number of Parking Spaces</label>
+            <label class="form-label">Number of Parking Spaces:</label>
             <input class="form-control" type="number" name="Parking_spaces"
-                placeholder="Enter your Reading Score" min='1' max='15' />
+                placeholder="Parking Spaces" min='1' max='6' />
         </div>
         <div class="mb-3">
             <input class="btn btn-primary" type="submit" value="Predict the rental price" required />
         </div>
     </form>
+    {% if results %}
     <h2>
-       The  predicted rental price is: R {{results}} per month
+        The predicted rental price is: R{{results}} per month
     </h2>
+    {% endif %}
    <body>
 </html>
 
